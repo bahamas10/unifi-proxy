@@ -1,0 +1,14 @@
+[Unit]
+Description=unifi-proxy discovery
+Documentation=https://github.com/bahamas10/unifi-proxy
+After=network.target
+
+[Service]
+Environment=NODE_PORT=10001
+Type=simple
+User=nobody
+ExecStart=/usr/bin/node /opt/unifi-proxy/server.js /opt/unifi-proxy/packet.json
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
